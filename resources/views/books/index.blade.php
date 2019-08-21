@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
 
+    @if(session('status'))
+    <p class = "alert alert-success">
+        {{ session('status') }}
+    </p>
+    @endif
 <div class="container">
     <h3>
     <a href ="{{url('books/create')}}">Create Book</a>
@@ -15,7 +20,9 @@
     <th>Title</th>
     <th>Auther</th>
     <th>Description</th>
+    <th>Category_id</th>
     <th>Book Img</th>
+    <th>PDF File</th>
     <th>Aaction</th>
     </tr>
     </thead>
@@ -29,7 +36,9 @@
     <td> <?php echo $book->title;?></a></td>
     <td> <?php echo $book->auther;?></td>
     <td> <?php echo $book->description;?></td>
+    <td> <?php echo $book->category_id;?></td>
     <td><img src="{{asset('storage/images/books/'. $book->image)}}" alt="" height="100" width="150"></td>
+    <td><img src="{{asset('storage/files/pdf/'. $book->file)}}" alt="" height="100" width="150"></td>
     <td>
     <div class="row">
     <div class="col-md-4">
