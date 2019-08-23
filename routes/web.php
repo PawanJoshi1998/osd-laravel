@@ -11,8 +11,39 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/', 'IndexController@index');
+
+Route::get('/book', function () {
+    return view('book');
+});
+
+Route::get('/logins', function () {
+    return view('logins');
+});
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/privacy', function () {
+    return view('privacy-policy');
+});
+Route::get('/product', function () {
+    return view('product');
+});
+Route::get('/product-single', function () {
+    return view('product-single');
+});
+Route::get('/registers', function () {
+    return view('registers');
+});
+Route::get('/shipping', function () {
+    return view('shipping');
+});
+Route::get('/terms', function () {
+    return view('terms-condition');
 });
 
 Auth::routes();
