@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+    nginx:
+        image: nginx:1.16.0
+        container_name: nginx
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"  
+        volumes:
+            - /home/ubuntu/osd-laravel/server/nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - /home/ubuntu/osd-laravel:/var/www/html/osd-laravel
+        links:
+            - php
+            - mysql
+        
+    php:
+        build: ./server
+        image: php
+        container_name: php
+        restart: always
+        volumes:
+            - /home/ubuntu/osd-laravel/server/php/php.ini:/usr/local/etc/php/conf.d/php.ini
+            - /home/ubuntu/osd-laravel:/var/www/html/osd-laravel
+           
+    mysql:
+        image: mysql:5.7
+        container_name: mysql       
+        restart: always
+        ports: 
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root    
+        volumes:
+            - /home/ubuntu/mysql/data:/var/lib/mysql
+            - /home/ubuntu/mysql/dumps:/docker-entrypoint-initdb.d
+            
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        restart: always
+        ports:
+            - "8000:80"
+        links: 
+            - mysql:db
