@@ -74,3 +74,13 @@ Route::get('categories/{category}/edit', 'CategoriesController@edit');
 Route::patch('categories/{category}', 'CategoriesController@update');
 Route::get('categories/{category}', 'CategoriesController@show');
 Route::delete('categories/{category}', 'CategoriesController@destroy');
+
+
+//for Banners
+
+Route::get('banners', 'BannersController@index');
+Route::get('banners/create', 'BannersController@create');
+Route::post('banners', 'BannersController@store');
+Route::get('banners/{banner}/edit', 'BannersController@edit');
+Route::patch('banners/{banner}', 'BannersController@update');
+Route::delete('banners/{banner}', 'BannersController@destroy');

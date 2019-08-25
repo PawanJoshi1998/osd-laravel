@@ -10,7 +10,7 @@
         <div class="container">
             <h2>highly recommendes books</h2>
             <div class="recomended-sec">
-                <div class="row">
+            <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
                             <img src="images/capture.png" alt="img">
