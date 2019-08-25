@@ -23,7 +23,7 @@
     <th>Category_id</th>
     <th>Book Img</th>
     <th>PDF File</th>
-    <th>Aaction</th>
+    <th>Action</th>
     </tr>
     </thead>
 
