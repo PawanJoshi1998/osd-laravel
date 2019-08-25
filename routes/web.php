@@ -53,17 +53,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 //for Books 
 
 Route::get('books', 'BooksController@index')->name('books')->middleware('auth');
-
 Route::get('books/create','BooksController@create')->middleware('auth');
-
 Route::post('books','BooksController@store')->middleware('auth');
-
 Route::get('books/{books}/edit','BooksController@edit')->middleware('auth');
-
 Route::post('books/{books}','BooksController@update')->middleware('auth');
-
 Route::delete('books/{books}', 'BooksController@destroy')->middleware('auth');
 
+//for Clients
+Route:post('registers', 'ClientsController@store');
 
 //for category
 
